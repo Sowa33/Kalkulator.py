@@ -245,53 +245,20 @@ pole_male_wyniki.grid(row=0, column=0, rowspan=8, padx=5, pady=5, sticky="nsew")
 ekran = Text(karta1, height=2, font=("Arial", 30))
 ekran.grid(row=1, column=1, columnspan=4, pady=5, padx=5, sticky="nsew")
 
-column = 1
-row = 2
-counter = 1
-for i in range(1,10):
-    if column >= 4:
-        column = 1
-    if counter >= 4:
-        row += 1
-        counter = 1
-    Button(karta1, text=i, font=("Arial", 14), command=lambda x=i: klikniecie(x)).grid(
-    row=row, column=column, sticky="nsew", padx=2, pady=2)
-    column+=1
-    counter +=1
-Button(karta1, text="0", font=("Arial", 14), command=lambda: klikniecie(0)).grid(
-    row=5, column=2, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="-", font=("Arial", 14), command=lambda: klikniecie("-")).grid(
-    row=3, column=4, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="+", font=("Arial", 14), command=lambda: klikniecie("+")).grid(
-    row=2, column=4, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="*", font=("Arial", 14), command=lambda: klikniecie("*")).grid(
-    row=4, column=4, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="(", font=("Arial", 14), command=lambda: klikniecie("(")).grid(
-    row=5, column=1, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text=")", font=("Arial", 14), command=lambda: klikniecie(")")).grid(
-    row=5, column=3, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="/", font=("Arial", 14), command=lambda: klikniecie("/")).grid(
-    row=5, column=4, sticky="nsew", padx=2, pady=2
-)
 
-Button(karta1, text="Del", font=("Arial", 14), command=cofnij_jeden).grid(
-    row=6, column=1, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="C", font=("Arial", 14), command=wyczysc_wszystko).grid(
-    row=6, column=2, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="^2", font=("Arial", 14), command=lambda: klikniecie("**2")).grid(
-    row=6, column=3, sticky="nsew", padx=2, pady=2
-)
-Button(
-    karta1, text="V", font=("Arial", 14), command=lambda: klikniecie("**(0.5)")
-).grid(row=6, column=4, sticky="nsew", padx=2, pady=2)
+lista = [1,2,3,"+",4,5,6,"-",7,8,9,"*","(",0,")","/"]
+number = 0
+counter = 1
+for row in range(2,6):
+    for column in range(1,5):
+        Button(karta1, text=lista[number], font=("Arial", 14), command=lambda x=lista[number]: klikniecie(x)).grid(row=row, column=column, sticky="nsew", padx=2, pady=2)
+        number+=1
+
+lista2 = [["Del",cofnij_jeden],["C",wyczysc_wszystko],["^2",lambda:klikniecie("**2")],["V",lambda:klikniecie("**(0.5)")]]
+column = 1
+for podlista in lista2:
+    Button(karta1, text=podlista[0], font=("Arial", 14), command=podlista[1]).grid(row=6, column=column, sticky="nsew", padx=2, pady=2)
+    column+=1
 
 Button(karta1, text="=", font=("Arial", 14), bg="orange", command=policz_to).grid(
     row=7, column=1, columnspan=4, sticky="nsew", padx=2, pady=2
