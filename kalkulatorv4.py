@@ -230,20 +230,14 @@ zakladki.pack(expand=1, fill="both")
 karta1 = Frame(tab1, bg="gray")
 karta1.pack(fill="both", expand=True)
 
-karta1.columnconfigure(0, weight=1)
-karta1.columnconfigure(1, weight=1)
-karta1.columnconfigure(2, weight=1)
-karta1.columnconfigure(3, weight=1)
-karta1.columnconfigure(4, weight=1)
+for i in range(5):
+    karta1.columnconfigure(i, weight=1)
 
-karta1.rowconfigure(0, weight=1)
-karta1.rowconfigure(1, weight=1)
-karta1.rowconfigure(2, weight=1)
-karta1.rowconfigure(3, weight=1)
-karta1.rowconfigure(4, weight=1)
-karta1.rowconfigure(5, weight=1)
-karta1.rowconfigure(6, weight=1)
-karta1.rowconfigure(7, weight=1)
+
+
+for i in range(8):
+    karta1.rowconfigure(i, weight=1)    
+
 
 pole_male_wyniki = Text(karta1, font=("Arial", 10), height=8, width=20)
 pole_male_wyniki.grid(row=0, column=0, rowspan=8, padx=5, pady=5, sticky="nsew")
@@ -251,6 +245,21 @@ pole_male_wyniki.grid(row=0, column=0, rowspan=8, padx=5, pady=5, sticky="nsew")
 ekran = Text(karta1, height=2, font=("Arial", 30))
 ekran.grid(row=1, column=1, columnspan=4, pady=5, padx=5, sticky="nsew")
 
+column = 1
+row = 2
+counter = 1
+for i in range(1,10):
+    if column >= 4:
+        column = 1
+    if counter >= 4:
+        row += 1
+        counter = 1
+    Button(karta1, text=i, font=("Arial", 14), command=lambda x=i: klikniecie(x)).grid(
+    row=row, column=column, sticky="nsew", padx=2, pady=2)
+    column+=1
+    counter +=1
+
+'''
 Button(karta1, text="1", font=("Arial", 14), command=lambda: klikniecie(1)).grid(
     row=2, column=1, sticky="nsew", padx=2, pady=2
 )
@@ -260,10 +269,6 @@ Button(karta1, text="2", font=("Arial", 14), command=lambda: klikniecie(2)).grid
 Button(karta1, text="3", font=("Arial", 14), command=lambda: klikniecie(3)).grid(
     row=2, column=3, sticky="nsew", padx=2, pady=2
 )
-Button(karta1, text="+", font=("Arial", 14), command=lambda: klikniecie("+")).grid(
-    row=2, column=4, sticky="nsew", padx=2, pady=2
-)
-
 Button(karta1, text="4", font=("Arial", 14), command=lambda: klikniecie(4)).grid(
     row=3, column=1, sticky="nsew", padx=2, pady=2
 )
@@ -273,10 +278,6 @@ Button(karta1, text="5", font=("Arial", 14), command=lambda: klikniecie(5)).grid
 Button(karta1, text="6", font=("Arial", 14), command=lambda: klikniecie(6)).grid(
     row=3, column=3, sticky="nsew", padx=2, pady=2
 )
-Button(karta1, text="-", font=("Arial", 14), command=lambda: klikniecie("-")).grid(
-    row=3, column=4, sticky="nsew", padx=2, pady=2
-)
-
 Button(karta1, text="7", font=("Arial", 14), command=lambda: klikniecie(7)).grid(
     row=4, column=1, sticky="nsew", padx=2, pady=2
 )
@@ -286,15 +287,22 @@ Button(karta1, text="8", font=("Arial", 14), command=lambda: klikniecie(8)).grid
 Button(karta1, text="9", font=("Arial", 14), command=lambda: klikniecie(9)).grid(
     row=4, column=3, sticky="nsew", padx=2, pady=2
 )
+'''
+
+Button(karta1, text="0", font=("Arial", 14), command=lambda: klikniecie(0)).grid(
+    row=5, column=2, sticky="nsew", padx=2, pady=2
+)
+Button(karta1, text="-", font=("Arial", 14), command=lambda: klikniecie("-")).grid(
+    row=3, column=4, sticky="nsew", padx=2, pady=2
+)
+Button(karta1, text="+", font=("Arial", 14), command=lambda: klikniecie("+")).grid(
+    row=2, column=4, sticky="nsew", padx=2, pady=2
+)
 Button(karta1, text="*", font=("Arial", 14), command=lambda: klikniecie("*")).grid(
     row=4, column=4, sticky="nsew", padx=2, pady=2
 )
-
 Button(karta1, text="(", font=("Arial", 14), command=lambda: klikniecie("(")).grid(
     row=5, column=1, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="0", font=("Arial", 14), command=lambda: klikniecie(0)).grid(
-    row=5, column=2, sticky="nsew", padx=2, pady=2
 )
 Button(karta1, text=")", font=("Arial", 14), command=lambda: klikniecie(")")).grid(
     row=5, column=3, sticky="nsew", padx=2, pady=2
