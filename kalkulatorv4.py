@@ -258,37 +258,6 @@ for i in range(1,10):
     row=row, column=column, sticky="nsew", padx=2, pady=2)
     column+=1
     counter +=1
-
-'''
-Button(karta1, text="1", font=("Arial", 14), command=lambda: klikniecie(1)).grid(
-    row=2, column=1, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="2", font=("Arial", 14), command=lambda: klikniecie(2)).grid(
-    row=2, column=2, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="3", font=("Arial", 14), command=lambda: klikniecie(3)).grid(
-    row=2, column=3, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="4", font=("Arial", 14), command=lambda: klikniecie(4)).grid(
-    row=3, column=1, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="5", font=("Arial", 14), command=lambda: klikniecie(5)).grid(
-    row=3, column=2, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="6", font=("Arial", 14), command=lambda: klikniecie(6)).grid(
-    row=3, column=3, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="7", font=("Arial", 14), command=lambda: klikniecie(7)).grid(
-    row=4, column=1, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="8", font=("Arial", 14), command=lambda: klikniecie(8)).grid(
-    row=4, column=2, sticky="nsew", padx=2, pady=2
-)
-Button(karta1, text="9", font=("Arial", 14), command=lambda: klikniecie(9)).grid(
-    row=4, column=3, sticky="nsew", padx=2, pady=2
-)
-'''
-
 Button(karta1, text="0", font=("Arial", 14), command=lambda: klikniecie(0)).grid(
     row=5, column=2, sticky="nsew", padx=2, pady=2
 )
